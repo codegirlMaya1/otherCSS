@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play Music on Open</title>
+
+    <style>
+        body{
+           font-family: 'Courier New', Courier, monospace;
+           border: 5px solid black;
+           align-content: center;
+        }
+        nav {
+            background-color: #333;
+        }
+        
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        
+        nav ul li {
+            float: left;
+        }
+        
+        nav ul li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        
+        nav ul li a:hover {
+            background-color: #111;
+        }
+        .Section1
+        {
+            flex: 1 1 100px; /* Grow, shrink, and set base width */
+            margin: 10px;
+            padding: 50px;
+            background-image: linear-gradient(to bottom,  black 50%, #fcfeff 50%);
+            background-size: 100% 40px;
+            text-align: center;
+        }
+        .sectionA
+        {
+            flex: 1 1 100px; /* Grow, shrink, and set base width */
+            margin: 10px;
+            padding: 50px;
+            background-color: black;
+            background-size: 100%;
+            text-align: center;
+            font-family: monospace;
+            color:wheat;
+        
+        }
+        .jump4, .embededGame, .go2{
+            align-items: center;
+        }
+        iframe{
+            align-items: center;
+        }
+
+        ul{
+            list-style-position: outside;
+            list-style-type: none;
+            border: 5px;
+            border-radius: 80%;
+            color: #f0f0f0;
+            background:darkred;
+            padding: 50px;
+            font-size: 20px;
+            font-family: cursive;
+            
+        }
+        a{
+            color: white;
+            
+        }
+        header {
+            background-color: #f8f9fa;
+            padding: 10px 0;
+            border-style: dotted;
+            border-width: 5px;
+            border-color: cadetblue;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .header-image {
+            width: 500px;
+            height: auto;
+            padding: 5px 0;
+            margin: 0 10px;
+            border-style: dotted;
+            border-width: 5px;
+            border-color: red;
+        } 
+        sub{
+            font-size: 20;
+        }
+        ol{
+            list-style: none;
+            font-size: 24px;
+            text-align: center;
+            color: darkblue;
+            box-sizing: border-box;
+            border-color: darkblue;
+        }
+        p{
+            font-family: cursive;
+            color: #f0f0f0;
+        }
+        img
+        {
+            align-self: center;
+            
+        }
+       .move1{
+        align-content: center;
+       }
+       div.gallery {
+        border: 1px solid #ccc;
+      }
+      
+      div.gallery:hover {
+        border: 1px solid #777;
+      }
+      
+      div.gallery img {
+        width: 100%;
+        height: auto;
+      }
+      
+      div.desc {
+        padding: 15px;
+        text-align: center;
+      }
+      
+      * {
+        box-sizing: border-box;
+      }
+      
+      .responsive {
+        padding: 0 6px;
+        float: left;
+        width: 24.99999%;
+      }
+      
+      @media only screen and (max-width: 700px) {
+        .responsive {
+          width: 49.99999%;
+          margin: 6px 0;
+        }
+      }
+      
+      @media only screen and (max-width: 500px) {
+        .responsive {
+          width: 100%;
+        }
+      }
+      
+      .clearfix:after {
+        content: "";
+        display: table;
+        clear: both;
+      } 
+      .jump3
+      {
+        font-size: 30px;
+        color: #f0f0f0;
+      }
+      h2, h3
+      {
+        color: #f0f0f0;
+      }
+      .go1, .go2, .go3,.go4
+      {
+        background-color: black;
+        align-content: center;
+      }
+      .button 
+      {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: #fff;
+        background-color: darkred;
+        border: none;
+        border-radius: 5px;
+        text-align: center;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+    
+    .button:hover {
+        background-color: #e4f124;
+    }
+    h1{
+        font-family: cursive;
+        color: black;
+    }
+    footer{
+        background-color: darkred;
+        font-family: 'Courier New', Courier, monospace;
+        color: #f0f0f0;
+    }
+    .feedback1{
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 16px;
+        color: black;
+    }
+    @import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
+
+* {
+  box-sizing: border-box;
+}
+
+#app {
+  display: flex;
+  overflow: hidden;
+  position: relative;  
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(red, orange);
+}
+
+.butter-cheese-eggs {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-wrap: wrap;
+  width: 300px;
+  height: 300px;
+  
+  > div {
+    flex: 0 0 auto;
+    width: 100px;
+    height: 100px;
+    
+    .block {
+      cursor: pointer;
+      display: table-cell;
+      width: 100px;
+      height: 100px;
+      font: bold 50px/0 'Comic Sans MS', sans-serif;
+      vertical-align: middle;
+      text-align: center;
+    }
+    
+    &:nth-child(1),
+    &:nth-child(2),
+    &:nth-child(3),
+    &:nth-child(4),
+    &:nth-child(5),
+    &:nth-child(6) {
+      border-bottom: 3px solid #fff;
+    }
+
+    &:nth-child(2),
+    &:nth-child(5),
+    &:nth-child(8) {
+      border-left: 3px solid #fff;
+      border-right: 3px solid #fff;
+    }
+  }
+  
+  span {
+    display: block;
+  }
+}
+
+.win {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-10deg);
+  transform-origin: 50% 50%;
+  transform-origin: center;
+  width: 300px;
+  height: 300px;
+  margin-top: -60px;
+  margin-left: -20px;
+  padding-top: 140px;
+  font-family: 'Permanent Marker', cursive;
+  text-align: center;
+  
+  h2 {
+    display: block;
+    margin: 0 0 10px;
+    font-size: 100px;
+    text-shadow: 0px 0px 50px white;
+    text-align: center;
+  }
+  
+  button {
+    cursor: pointer;
+    transition: all 200ms cubic-bezier(0.175, 0.885, 0.320, 1.275);
+    outline: none;
+    display: inline-block;
+    padding: 15px;
+    background-color: darkred;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 20px;
+    color: white;
+    
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+        
+
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="#jump1">Weekly Oldies</a></li>
+                    <li><a href="#jump2">About</a></li>
+                    <li><a href="#jump3">Games Category</a></li>
+                    <li><a href="#jump4">Contact/Book a Vegas Bingo Trip</a></li>
+                </ul>
+            </nav>
+            <div class="header-container">
+                <img src="https://th.bing.com/th/id/OIP.-83h6L2cbFrqKruOce_-xQHaJo?w=178&h=232&c=7&r=0&o=5&pid=1.7" alt="Image 1" class="header-image">
+                <img src="https://th.bing.com/th/id/OIP.smAMS9VDHYxAuPwt2VVoDAHaKe?w=178&h=252&c=7&r=0&o=5&pid=1.7" alt="Image 2" class="header-image">
+                <img src="https://th.bing.com/th/id/OIP.tKYxIzSaRnh_IfHdbOM0TAAAAA?w=178&h=237&c=7&r=0&o=5&pid=1.7" alt="Image 3" class="header-image">
+            </div>
+        </header>
+    </header>
+    <section class="sectionA">
+        <h2> NOW PLAYING: </h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/3T2k-gBbJ9Q?si=LCCEBxAS8BnvaX0T" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+         <p class="sub"> This week we are watching "Little House on the Praire" season-1 episode-1</p>
+    </section>
+
+
+
+    <section class="Section1">
+    <ul class id="jump1">
+        <li> <h2> OLDIES (Top Music Weekly):</h2></li>
+        <li><p></p></li>
+
+        <li><a href="#" onclick="playSound()">Play "Cheers" Song</a></li>
+    <audio id="myAudio" src="Cheers.mp3"></audio>
+
+    <script>
+        function playSound() {
+            var audio = document.getElementById('myAudio');
+            audio.play();
+        }
+    </script>
+    </audio>
+
+    <li><a href="#" onclick="playSound1()">Play "Used to Be My Girl" -by the O</a></li>
+    <audio id="myAudio1" src="used.mp3"></audio>
+
+    <script>
+        function playSound1() {
+            var audio = document.getElementById('myAudio1');
+            audio.play();
+        }
+    </script>
+    </audio>
+    <li><a href="#" onclick="playSound2()">Play "Fields of Gold" -by Sting</a></li>
+    <audio id="myAudio2" src="sting.mp3"></audio>
+
+    <script>
+        function playSound2() {
+            var audio = document.getElementById('myAudio2');
+            audio.play();
+        }
+    </script>
+    </audio>
+
+
+
+</audio>
+
+
+</audio>
+<li><a href="#" onclick="playSound4()">Play "IMAGINE" -by Jon Lemmon</a></li>
+<audio id="myAudio4" src="imagine.mp3"></audio>
+
+<script>
+    function playSound4() {
+        var audio = document.getElementById('myAudio4');
+        audio.play();
+    }
+</script>
+</audio>
+
+
+</audio>
+<li><a href="#" onclick="playSound5()">Play "Simply the Best" -by Tina Turner</a></li>
+<audio id="myAudio5" src="best.mp3"></audio>
+
+<script>
+    function playSound5() {
+        var audio = document.getElementById('myAudio5');
+        audio.play();
+    }
+</script>
+</audio>
+
+
+</audio>
+<li><a href="#" onclick="playSound6()">Play "Lovely Day" -by Bill Withers</a></li>
+<audio id="myAudio6" src="lovely.mp3"></audio>
+
+<script>
+    function playSound6() {
+        var audio = document.getElementById('myAudio6');
+        audio.play();
+    }
+</script>
+</audio>
+
+
+  </ul>
+  </section class="section2">
+
+ 
+    
+    <section class=" go1">
+        
+    <ol class id="jump2">
+        <li><h2> About</h2></li>
+        <li> <p>We offer one complimentary video to the public weekly. Subscribers have access <br>
+             to hundreds of video/audio archives like the Brady Bunch, Cosby Show, Elvis ect.... <br>
+            
+        <li> <p>If it was series from the past it's available. The archives include "Gone with the Wind",<br>
+             "The Color Purple" and all the classics you remember. Grab your popcorn, enjoy the show. <br>
+            
+             <li><h2 class id="jump3"> Play a Game of Top Typer</h2></li>
+    </section>
+
+    <section class="go2">
+    
+            <!-- iDev.Games Responsive Embed Code for Oli Typer -->
+<div style="position: relative;height: 0;overflow: hidden;padding-bottom: 56.25%;">
+    <iframe id="embededGame" src="https://idev.games/embed/oli-typer" scrolling="no" seamless="seamless" frameBorder="0" style="position: absolute;top:0;left: 0;width: 100%;height: 100%;">Browser not compatible.</iframe>
+</div>
+<!-- End Embed Code -->
+
+            
+
+
+        
+    </ol>
+    </section>
+
+    <section class="go3">
+    <ul class="go4">
+        <li><h3>Subscribers can play many games on this site.</h3></li>
+         <li> Use your keyboard to practice building your typing speed, above...</p></h3> </li>
+        <li> <H2> <em>OR,</em>Click Below to Subscribe & Find Other Games.....</H2></li>
+    </ul>
+    <a href="destination.html" class="button">Subscribe Now!</a>
+    <a href="destination.html" class="button">Find More Games</a>
+    <a href="destination.html" class="button">Search Legendary Video Archives</a>
+    <a href="destination.html" class="button">Search Extended Audio Archives</a>
+
+       
+
+
+    </section>
+
+    <section class id="jump4">
+        <h1> SERVICES</h1>
+
+    <div class="responsive">
+        <div class="gallery">
+          <a target="_blank" href="https://th.bing.com/th/id/OIP.xKe12TQtvgS1FeyF-WZiFQHaDt?w=316&h=174&c=7&r=0&o=5&pid=1.7">
+            <img src="https://th.bing.com/th/id/OIP.xKe12TQtvgS1FeyF-WZiFQHaDt?w=316&h=174&c=7&r=0&o=5&pid=1.7" alt="Cinque Terre">
+          </a>
+          <div class="desc">Every year dozens of mature adults travel together to the Las Vegas Bingo Tournament.</div>
+        </div>
+      </div>
+      
+      <div class="responsive">
+        <div class="gallery">
+          <a target="_blank" href="https://th.bing.com/th/id/OIP.ZlypCiUin2qq3Q_93Zt3iwHaEM?w=254&h=180&c=7&r=0&o=5&pid=1.7">
+            <img src="https://th.bing.com/th/id/OIP.ZlypCiUin2qq3Q_93Zt3iwHaEM?w=254&h=180&c=7&r=0&o=5&pid=1.7 " alt="Forest">
+          </a>
+          <div class="desc">You can conveniently book a Las Vegas Bingo Trip on this site.</div>
+        </div>
+      </div>
+      
+      <div class="responsive">
+        <div class="gallery">
+          <a target="_blank" href="https://th.bing.com/th/id/OIP.cJ8saVIC7R0FdnG4vPccQgHaE8?w=228&h=180&c=7&r=0&o=5&pid=1.7">
+            <img src="https://th.bing.com/th/id/OIP.cJ8saVIC7R0FdnG4vPccQgHaE8?w=228&h=180&c=7&r=0&o=5&pid=1.7" alt="Northern Lights">
+          </a>
+          <div class="desc">There are travel and hotel accommodations conveniently packaged together for affordability.</div>
+        </div>
+      </div>
+      
+      <div class="responsive">
+        <div class="gallery">
+          <a target="_blank" href=" https://th.bing.com/th/id/OIP.8eHUj8GQ1MTy5tu7HovWoQHaE8?w=289&h=187&c=7&r=0&o=5&pid=1.7">
+            <img src="https://th.bing.com/th/id/OIP.8eHUj8GQ1MTy5tu7HovWoQHaE8?w=289&h=187&c=7&r=0&o=5&pid=1.7" alt="Mountains">
+          </a>
+          <div class="desc"> Subscribe today to find out more about special priced packages for the Las Vegas Bingo Tournament....</div>
+
+          </div>
+        </div>
+      </div>
+      
+      <div class="clearfix"></div>
+    </section>
+
+    <section>
+        <form action="destination.html">
+            <h1> FEEDBACK SECTION</h1>
+            <p class="feedback1">Please provide feedback regarding what you like/dislike about this website.</p>
+            Name:<br>
+            <input type="text" size="19" name="Contact-Name"><br><br>
+            Email:<br>
+            <input type="email" name="Contact-Email"><br><br> 
+            Message:<br> 
+            <textarea name="Contact-Message" rows="6″ cols="20″>
+            </textarea><br><br> 
+
+            <p class="feedback1"> On a scale of 1-10, how would you rate this<strong> website? </strong></p>
+            <form action="ratings_2.html" method="post">
+                <label for="age">AGE:</label>
+                <input type="number" id="age" name="age" min="18" max="99" step="1" required>
+        
+                <label for="points"> WEBSITE RATING (between 0 and 10):</label>
+                <input type="range" id="points" name="points" min="0" max="10" required>
+                <a href="destination.html" class="button">Submit Feedback....</a>
+                
+
+
+        </form>
+    </section>
+
+    <footer>
+        <p> @2024 Basic Web Page</p>
+    </footer>
+
+
+
+ 
+</body>
+</html>

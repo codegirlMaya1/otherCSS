@@ -1,0 +1,20 @@
+h2{
+    color: dark slategray;
+    font-style: italic;
+    
+}
+ul{
+    list-style-type: circle;
+}
+
+a{
+    color: teal;
+    text-decoration: none;
+}
+p
+{
+    width: 100px;
+    height: 50px;
+    padding: 20px;
+    border: 9px solid black;
+}

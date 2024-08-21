@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<style>
+    body{
+        background-color: black;
+      }
+      div{
+        margin: 2em 5em 3em 5em;
+      
+        padding: 2em 6em 2em 6em;
+        background: darkred;
+      background: linear-gradient(117deg,darkred 0%, rgba(125,129,150,0.9757503221014968) 96%, darkred 98%, rgba(222,199,45,1) 98%, rgba(142,49,242,0.5859143339953169) 98%);
+        color: #ffff;
+        font-family: cursive;
+        border-radius: 1.25rem;
+      }
+      #container_1{
+        text-align:center;
+      }
+      #container_2{
+       display: block;
+      
+        
+      }
+      .form{
+        width: 100%;
+        margin-bottom: 1em;
+      }
+      
+      #submit{
+        display: block;
+        width: 100%;
+        padding: 0.75rem;
+        background: rgb(2,0,36);
+        color: inherit;
+        border-radius: 15px;
+        cursor: pointer;
+      }
+      
+      textarea{
+        width: 100%;
+      }
+      .button 
+      {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: #fff;
+        background-color: black;
+        border: none;
+        border-radius: 5px;
+        text-align: center;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+    
+    .button:hover {
+        background-color: #e4f124;
+    }
+    .navbar {
+        overflow: hidden;
+        background-color: #333;
+    }
+    .navbar a {
+        float: left;
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+    .navbar a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+    td:nth-child(even), th:nth-child(even) {
+        background-color: #ddd;
+        color: darkred;
+      }
+      
+      
+
+</style>
+
+</head>
+<body>
+    <div id="container_1">
+  
+        <h1 id="title">
+        Student Registration
+      </h1><!--title-->
+      <p id="description">
+        Enter the required data in the boxes.
+      </p><!--description--->
+      <div class="navbar">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#career">Services</a>
+        <a href="#contact">Contact</a>
+      </div>
+      
+      </div><!---container_1--->
+      <div id="container_2">
+        <H1 class id="home"> HOME</H1>
+      <p> Thanks for considering this learning environment...</p>
+      <p> Please complete the registration form below to start.</p>
+      
+        <H2 class id="about">Signup:</H2>
+        <form id="survey-form">
+          <label id="name-label">Name</label>
+            <input type="text" id="name" name="name" class="form" required placeholder="Insert your name"><br><!--name--->
+          <label id="email-label">Email</label>
+            <input type="email" id="email" name="email" class="form" required placeholder="Insert your email"><br><!---email-->
+          <label id="number-label">Age</label>
+            <input type="number" id="number" name="number" class="form" placeholder="Age" min=18 max=60 required><br><!---number-->
+          <label id="career"> SERVICES/ Courses Offered:</label>
+          <select id="dropdown" name="role" required>
+            <option disabled selected value>
+              Select your education choice:
+            </option>
+            <option value="ISC">
+              Computer Systems Engineering
+            </option>
+            <option value="IMA">
+             Front End Developer
+            </option>
+            <option value="II">
+              Back End Develper
+            </option>
+            <option value="IGE">
+              Full Stack
+            </option>
+          </select><!--dropdown--->
+          <p>Gender</p>
+          <label>
+            <input type="radio" name="genre" value="Male">Male
+          </label>
+          <label>
+            <input type="radio" name="genre" value="Female">Female
+          </label>
+          <label>
+            <input type="radio" name="genre" value="Other">I prefer not to answer
+          </label><!---radioButtons--->
+          <p>What is your preferred mode of study?</p>
+          <label>
+            <input type="checkbox" name="mode" value="Online">Online
+          </label>
+          <label> 
+            <input type="checkbox" name="mode" value="Hybrid">Hybrid
+          </label>
+        <label>
+            <input type="checkbox" name="mode" value="On site">On site
+          </label>
+          <H2 class id="contact"> Contact-Email</H2>
+          <p> To contact send an email to 123@example.com</p>
+          <p>Any comments or suggestions?</p>
+            <textarea
+              id="comments"
+              name="comment"
+              placeholder="Enter your comment here..."
+            ></textarea><!---comment-->
+        
+        <table> 
+           <tr>
+            <th> Gender</th>
+            <th> Total Enrolled</th>
+            <th> Graduation Rate</th>
+           </tr>
+
+           <tr>
+            <td>Male</td>
+            <td>153</td>
+            <td>86%</td>
+          </tr>
+          <tr>
+            <td>Female</td>
+            <td>102</td>
+            <td>75%</td>
+          </tr>
+
+        </table>
+ 
+          
+        <a href="receive.html" class="button">Submit Feedback....</a>
+      
+    
+</body>
+</html>
